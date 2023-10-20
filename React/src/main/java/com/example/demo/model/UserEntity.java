@@ -4,7 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.apache.catalina.User;
 import org.hibernate.annotations.GenericGenerator;
+
+
+import com.example.demo.dto.UserDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,6 +17,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+
 
 
 @Data
@@ -31,7 +37,18 @@ public class UserEntity {
 
   private String password; // 패스워드.
 
-  private String role; // 유저의 롤.
+  private UserRole role; // 유저의 롤.
 
   private String authProvider; // example : facebook
+  
+
+  private String email;
+  
+  private String addr;
+  
+  private String phone;
+  private String name;
+  
+
+	
 }
