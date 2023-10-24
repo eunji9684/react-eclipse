@@ -48,6 +48,11 @@ public class UserService {
 	    String email = userEntity.getEmail();
 	    return userRepository.existsByemail(email);
     }
+  
+  public boolean checkusername(UserEntity userEntity) {
+	  String username = userEntity.getUsername();
+	  return userRepository.existsByUsername(username);
+  }
 
 	
 

@@ -95,10 +95,22 @@ public class UserController {
       boolean isDuplicate = userService.checkEmail(userEntity);
       if (isDuplicate) {
           // 중복된 이메일 주소인 경우
-          return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", "중복된 이메일 주소입니다."));
+    	   return ResponseEntity.status(HttpStatus.OK).body(Map.of("message", "중복된 이메일 주소입니다."));
       } else {
           // 유효한 이메일 주소인 경우
           return ResponseEntity.ok(Map.of("message", "유효한 이메일 주소입니다."));
+          
+      }
+  }
+  
+  @PostMapping("/checkUsername")
+  public ResponseEntity<Map<String, String>> checkUsername(@RequestBody UserEntity userEntity) {
+      
+      boolean isUsernameExists = userService.checkusername(userEntity);
+      if (isUsernameExists) {
+          return ResponseEntity.status(HttpStatus.OK).body(Map.of("message", "중복된 아이디입니다."));
+      } else {
+          return ResponseEntity.ok(Map.of("message", "유효한 아이디입니다."));
       }
   }
 
